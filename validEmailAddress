@@ -1,0 +1,42 @@
+//TBD
+(?(DEFINE)
+	(?'atext'
+		[a-zA-Z0-9!#$%&'*+\-\/=?\^_`{|}~]
+	)
+	(?'atom'
+		(?P>atext)*
+	)
+	(?'cfws'
+		
+	)
+	(?'dotatom'
+		
+	)
+	(?'quotedstring'
+		
+	)
+	(?'obslocalpart'
+		
+	)
+	(?'fws'
+		
+	)
+	(?'dcontent'
+		
+	)
+	(?'domainliteral'
+		(?P>cfws)\[?(?:(?P>fws)(?P>dcontent))*
+	)
+	(?'obsdomain'
+		
+	)
+	(?'localpart'
+		(?P>dotatom)|(?P>quotedstring)|(?P>obslocalpart)
+	)
+	(?'domain'
+		(?P>dotatom)|(?P>domainliteral)|(?P>obsdomain)
+	)
+	(?'addrspec'
+		(?P>localpart)@(?P>domain)
+	)
+)
